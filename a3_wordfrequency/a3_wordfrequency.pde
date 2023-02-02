@@ -21,11 +21,17 @@ int[][] getFrequencies(String[] arr) {
 }
 
 void visualize(int[] freq, int[] wordct) {
+    rectMode(CENTER);
+    
     float mult = (500.0 / max(wordct));
+    int blocksize = int(round(500.0 / freq.length));
+    int ypos = 500 - int(blocksize/2);
     for (int i = 0; i < freq.length; i++) {
         int size = int(round(mult * wordct[i]));
 
-        ellipse(freq[i], freq[i], size, size);
+        rect(250, ypos, size, blocksize);
+
+        ypos -= blocksize;
     }
 }
 
