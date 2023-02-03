@@ -35,8 +35,10 @@ def main():
         else:
             num_freq[freq] += 1
 
-    for num in num_freq:
-        wordfrequency.write(str(num) + ": " + str(num_freq[num]) + "\n")
+    num_freq_sorted = dict(sorted(num_freq.items()))
+
+    for num in num_freq_sorted:
+        wordfrequency.write(str(num) + ": " + str(num_freq_sorted[num]) + "\n")
         
         
 
