@@ -1,10 +1,10 @@
 import re 
 
 def main():
-    novel = open("the last spaceship.txt", "r")
-    allwords = open("allwords.txt", "w")
-    uniquewords = open("uniquewords.txt", "w")
-    wordfrequency = open("wordfrequency.txt", "w")
+    novel = open("thelastspaceship.txt", "r")
+    allwords = open("C:\\Users\\seant\\Documents\\Processing\\sft372_assignment3\\a3_novelvisualization\\allwords.txt", "w")
+    uniquewords = open("C:\\Users\\seant\\Documents\\Processing\\sft372_assignment3\\a3_novelvisualization\\uniquewords.txt", "w")
+    wordfrequency = open("C:\\Users\\seant\\Documents\\Processing\\sft372_assignment3\\a3_wordfrequency\\wordfrequency.txt", "w")
 
     words = []
     for line in novel:
@@ -24,8 +24,16 @@ def main():
 
         allwords.write(word + "\n")
 
+    num_freq = dict()
     for word in word_freq:
-        wordfrequency.write(word + ": " + str(word_freq[word]) + "\n")
+        freq = word_freq[word]
+        if freq not in num_freq:
+           num_freq[freq] = 1
+        else:
+            num_freq[freq] += 1
+
+    for num in num_freq:
+        wordfrequency.write(str(num) + ": " + str(num_freq[num]) + "\n")
         
         
 
@@ -35,3 +43,4 @@ def main():
     wordfrequency.close()
 
 main()
+
