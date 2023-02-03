@@ -1,10 +1,13 @@
-import re 
+import re
+import os
 
 def main():
-    novel = open("thelastspaceship.txt", "r")
-    allwords = open("C:\\Users\\seant\\Documents\\Processing\\sft372_assignment3\\a3_novelvisualization\\allwords.txt", "w")
-    uniquewords = open("C:\\Users\\seant\\Documents\\Processing\\sft372_assignment3\\a3_novelvisualization\\uniquewords.txt", "w")
-    wordfrequency = open("C:\\Users\\seant\\Documents\\Processing\\sft372_assignment3\\a3_wordfrequency\\wordfrequency.txt", "w")
+    abs_path = os.path.dirname(__file__)
+
+    novel = open(os.path.join(abs_path, "thelastspaceship.txt"), "r")
+    allwords = open(os.path.join(abs_path, "allwords.txt"), "w")
+    uniquewords = open(os.path.join(abs_path, "a3_novelvisualization/uniquewords.txt"), "w")
+    wordfrequency = open(os.path.join(abs_path, "a3_wordfrequency/wordfrequency.txt"), "w")
 
     words = []
     for line in novel:
