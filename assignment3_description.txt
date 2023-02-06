@@ -8,7 +8,27 @@ Daniel Ross
 extract_words.py written by ...
 ...
 
-a3_novelvisualization.pde written by ...
+a3_novelvisualization.pde written by Alan Tang
+This Processing program visualizes a random assortment of the unique words 
+in the novel The Last Spaceship. These words are grabbed from a text file
+uniquewords.txt. They are then put in a random order with consistent
+spacing and do not run over the edge of the canvas.
+
+The words are sorted by different colors based off of the word length. The
+three categories are short words (5 letters or less), medium words (6-8 letters), 
+and long words (9+ letters). Short words are a lime like green, medium are blue,
+and long are copper. These colors were chosen because they fit well together in
+a pallette but are still distinct enough to show the diction in a novel (which I
+felt was really interesting to look at).
+
+The font chosen was Oswald because I felt it matched the space theme of the novel.
+The font size is 28 because it is a happy medium between having too many words and
+not really being able to distinguish any and having too little. This helps to see the
+trend of the types of words the novel uses.
+
+Lastly, the program has the additional feature of resetting the canvas with different 
+words by clicking on it.
+
 ...
 
 a3_wordfrequency.pde written by Daniel
