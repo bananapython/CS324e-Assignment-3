@@ -6,47 +6,68 @@ the contents of wordfrequency.txt.
 
 This file, a3_wordfrequency, written by Daniel Ross */
 
-int[][] getFrequencies(String[] arr) {
-    int[] freq = new int[arr.length];
-    int[] wordct = new int[arr.length]; 
-    int[][] mult_ret = {freq, wordct};
+int[] freq;
+int[] wordct;
 
-    for (int line = 0; line < arr.length; line++) {
+void getFrequencies(String[] arr) {
+    freq = new int[arr.length-1];
+    wordct = new int[arr.length-1]; 
+
+    for (int line = 0; line < arr.length-1; line++) {
         String[] splitln = split(arr[line], ": ");
 
         freq[line] = Integer.parseInt(splitln[0]);
         wordct[line] = Integer.parseInt(splitln[1]);
     }
-    return mult_ret;
 }
 
-void visualize(int[] freq, int[] wordct) {
-    rectMode(CENTER);
-    
-    float mult = (500.0 / max(wordct));
-    int blocksize = int(round(500.0 / freq.length));
-    int ypos = 500 - int(blocksize/2);
+void visualize() {   
+    float colorscale = 360.0 / freq.length;
+    float huex = 0;
+
+    float mult = (float(height) / max(wordct));
+    float blocksize = (float(width) / freq.length);
+    int xpos = int(ceil(blocksize / 2));
+
+    println("\n\n", colorscale, huex, mult, blocksize, xpos, "\n\n");
+
     for (int i = 0; i < freq.length; i++) {
         int size = int(round(mult * wordct[i]));
+        
 
-        rect(250, ypos, size, blocksize);
+        fill(huex, 100, 100);
 
-        ypos -= blocksize;
+        rect(xpos, (height / 2), blocksize, size);
+
+        xpos += blocksize;
+        huex += colorscale;
+
+        println(i, xpos, size, huex);
     }
 }
 
 void setup() {
     surface.setSize(500, 500);
+    surface.setResizable(true);
+
+    rectMode(CENTER);
+    colorMode(HSB, 360, 100, 100);
+    noStroke();
+
+    String[] wordfreqtxt = loadStrings("wordfrequency.txt");
+    getFrequencies(wordfreqtxt);
 }
 
 void draw() {
-    noLoop();
+    int newwidth = width;
+    int newheight = height;
 
-    String[] wordfreqtxt = loadStrings("wordfrequency.txt");
+    background(0);
+    visualize();
 
-    int[][] loadFreqs = getFrequencies(wordfreqtxt);
-    int[] freq = loadFreqs[0];
-    int[] wordct = loadFreqs[1];
-
-    visualize(freq, wordct);
+    while ((newwidth == width) && (newheight == height)) {
+        noLoop();
+    }
+    
+    loop();
 }
