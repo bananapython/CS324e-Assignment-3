@@ -5,6 +5,7 @@ Daniel Ross
 Alan Tang
 Sean Thomas
 
+
 extract_words.py written by Sean Thomas
 This Python script will start by reading in a text file of the novel, The Last Spaceship, and then putting each individual word into a list. 
 
@@ -19,6 +20,7 @@ After this loop, Python will iterate through the previously generated dictionary
 of word appearance with the number of words which appear that many times. The program will then generate a sorted version of this dictionary 
 and iterate through it and for each word frequency, it will print [frequency]:[# of words with that freq] to its own line in the text file 
 wordfrequency.txt in the folder used for the Processing file a3_wordfrequency 
+
 
 a3_novelvisualization.pde written by Alan Tang
 This Processing program visualizes a random assortment of the unique words 
@@ -41,7 +43,6 @@ trend of the types of words the novel uses.
 Lastly, the program has the additional feature of resetting the canvas with different 
 words by clicking on it.
 
-...
 
 a3_wordfrequency.pde written by Daniel
 This Processing program visualizes the frequencies of words in the book
