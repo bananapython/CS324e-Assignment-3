@@ -8,7 +8,17 @@ Daniel Ross
 extract_words.py written by ...
 ...
 
-a3_novelvisualization.pde by ...
+a3_novelvisualization.pde written by ...
 ...
 
-a3_wordfrequency.pde by Daniel
+a3_wordfrequency.pde written by Daniel
+This Processing program visualizes the frequencies of words in the book
+The Last Spaceship, as well as the number of words with those frequencies.
+The frequency values are visualized with a color and the position of a
+block along the X-Axis. The size of the block depicts how many words have
+that frequency.
+
+Some extra features in this program that weren't requested includes the
+ability to freely rezise the window with the graphics scaling to fit.
+Additionally, the program is optimized to only calculate how graphical
+elements should be drawn only once every time the window is resized.
